@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  background-color: #263645;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.playlist {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 10px
+}
+
+.playlist-image{
+  width: 150px;
+  height: 150px;
+  border: 3px solid #d1461c;
+  border-radius: 75px;
+  object-fit: cover;
+  margin-left: 10px;
+}
+
+.profile-name {
+  font-size: 26px;
+}
+
+.profile-info {
+  margin-left: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile-description {
+  font-size: 18px;
+}
