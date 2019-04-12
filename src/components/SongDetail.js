@@ -1,12 +1,14 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 
+
 class SongDetail extends React.Component{
   state = {
     playing: false,
     playingURL: "",
     audio: null,
-    playing: false
+    playing: false,
+    title: ''
   }
 
   playAudio(previewURL){
@@ -29,6 +31,10 @@ class SongDetail extends React.Component{
       }, ()=>console.log("set playing to false",this.state.playing))
     }
   }
+  //
+  // handleChange = e => {
+  //   this.setState({ title: e.target.value })
+  // };
 
   render(){
     console.log('song detail', this.props);

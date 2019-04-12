@@ -5,6 +5,9 @@ import NewWebplayerForm from './NewWebplayerForm';
 import UserSongsArea from './UserSongsArea';
 import Cable from './Cable';
 
+
+  // const webPlayer =
+
 class WebplayerList extends React.Component {
   state = {
     webplayers: [],
@@ -52,6 +55,7 @@ class WebplayerList extends React.Component {
     });
   };
 
+//sets up the chat to see who is in the chat
   handleRecievedUserSong = response => {
     const { userSong } = response;
     const webplayers = [...this.state.webplayers];
@@ -63,7 +67,8 @@ class WebplayerList extends React.Component {
   };
 
   render = () => {
-    console.log(this.state.webplayers);
+    console.log('WEBPLAYERLIST', this.state.webplayers);
+    // console.log(this.state.webplayers);
     const { webplayers, activeWebplayer } = this.state;
     return (
       <div className="webplayersList">
@@ -104,7 +109,6 @@ const findActiveWebplayer = (webplayers, activeWebplayer) => {
 }
 
 const mapWebplayers = (webplayers, handleClick) => {
-  console.log(webplayers);
   return webplayers.map(webplayer => {
     return (
       <li key={webplayer.id} onClick={() => handleClick(webplayer.id)}>

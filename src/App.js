@@ -161,7 +161,7 @@ class App extends Component {
             render={()=> <PlaylistContainer user={this.state.user} selectedPlaylistCard={this.selectedPlaylistCard}/> } />
           <Route
             exact path="/webplayerlist"
-            render={() => <WebplayerList/> } />
+            render={() => <WebplayerList currentSong={this.state.currentSong} user={this.state.user}/> } />
           <Route
             exact path="/webplayer"
             render={() => <WebPlayer user={this.state.user || {}} selectedPlaylistCard={this.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser}/> } />

@@ -15,9 +15,7 @@ class NewWebplayerForm extends React.Component {
     fetch(`${API_ROOT}/webplayers`, {
       method: 'POST',
       headers: HEADERS,
-      body: JSON.stringify({
-        title: this.state.title 
-      })
+      body: JSON.stringify(this.state)
     });
     this.setState({ title: '' })
   }
@@ -25,16 +23,7 @@ class NewWebplayerForm extends React.Component {
   render = () => {
     return(
       <div className="newWebplayerForm">
-        <form onSubmit={this.handleSubmit}>
-          <label>New Conversation:</label>
-          <br />
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
-          <input type="submit" />
-        </form>
+        
       </div>
     );
   };

@@ -3,6 +3,7 @@ import NewWebplayerForm from './NewWebplayerForm';
 import NewSongsForm from './NewSongsForm';
 //
 const UserSongsArea = ({ webplayer: { id, title, songs } }) => {
+  console.log('title',title);
   return (
     <div className="songsArea">
       <h2>{title}</h2>
@@ -21,6 +22,7 @@ const orderedSongs = songs => {
     (a,b) => new Date(a.created_at) - new Date(b.created_at)
   );
   return sortedSongs.map(song => {
+    debugger
     return <li key={song.id}>{song.title}</li>
   })
 };
