@@ -15,7 +15,9 @@ class NewWebplayerForm extends React.Component {
     fetch(`${API_ROOT}/webplayers`, {
       method: 'POST',
       headers: HEADERS,
-      body: JSON.stringify(this.state)
+      body: JSON.stringify({
+        title: this.state.title 
+      })
     });
     this.setState({ title: '' })
   }

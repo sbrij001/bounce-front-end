@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import PlayButton from './PureComponents/PlayButton'
 class SongCard extends React.Component{
   state = {
     albumImage: [],

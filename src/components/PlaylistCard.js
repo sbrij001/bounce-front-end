@@ -1,3 +1,4 @@
+import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/_composition.scss'
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import SongList from './SongList'
@@ -30,15 +31,19 @@ class PlaylistCard extends React.Component{
     //console.log('PlaylistCard',this.props.playlist);
 
     return(
-      <div className="playlist  ">
-        <Link to={`/playlists/${this.props.playlist.name}`}>
-        <img className="playlist-image" src={this.props.playlist.images? this.props.playlist.images[0].url : null} onClick={this.handleClick}/>
-        </Link>
-        <div className="playlist-info">
-          <h3 className="playlist-name">{ this.props.playlist.length ? this.props.playlist[0].name : this.props.playlist.name }</h3>
-          <p className="playlist-description">{this.props.playlist.description}</p>
+      <section className="section-features">
+        <div className="row">
+          <div className="col-1-of-4">
+            <div class="feature-box">
+              <Link to={`/playlists/${this.props.playlist.name}`}>
+                <img alt="album cover" className="composition__photo composition__photo--p1" src={this.props.playlist.images? this.props.playlist.images[0].url : null} onClick={this.handleClick}/>
+              </Link>
+              <h3 className="heading-tertiary">{ this.props.playlist.length ? this.props.playlist[0].name : this.props.playlist.name }</h3>
+              <p className="feature-box__text">{this.props.playlist.description}</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     )
   }
 }
