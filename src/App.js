@@ -8,10 +8,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import Home from './components/Home';
 import WebplayerList from './components/WebplayerList';
 import WebPlayer from './components/WebPlayer';
-import ProfileContainer from './components/ProfileContainer';
 import PlaylistContainer from './components/PlaylistContainer';
-import ArtistContainer from './components/ArtistContainer';
-import AlbumContainer from './components/AlbumContainer';
 import SongList from './components/SongList';
 import SongCard from './components/SongCard';
 import SongDetail from './components/SongDetail';
@@ -19,10 +16,14 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Error from './components/Error';
 import NavBar from './components/NavBar';
+import NewNav from './components/NewNav'
 import Header from './components/Header';
 
 //css
 import './App.css';
+import {Gradient} from 'react-gradient';
+import {gradients} from './components/gradient';
+import "/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/navigation.scss"
 
 // <Route exact path="/playlists/:name" render={()=> <PlaylistContainer/>} />
 class App extends Component {
@@ -30,7 +31,8 @@ class App extends Component {
     user: {},
     currentPlaylist:{},
     currentSong: {},
-    userPlaylists: []
+    userPlaylists: [],
+    track: []
   }
   //allows the user to stay logged in
   // if user? take the token from localStorage and send in to the backend
@@ -114,6 +116,12 @@ class App extends Component {
       userPlaylists: [playlist, ...this.state.userPlaylists]
     })
   }
+
+  handleClickForPostingSongToWebplayer = (track) => {
+    this.setState({
+      track:track
+    })
+  }
   // afterSelectPlaylistCard=()=>{
   //   const apiKey = '?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5&limit=10';
   //   debugger
@@ -149,25 +157,28 @@ class App extends Component {
     //browser router listens for the change in route and tells the application what to do based on the route.
     return (
       <div>
-        <NavBar/>
+        <NewNav/>
+        <Gradient
+        gradients={gradients.disgust} // required
+        property="background"
+        duration={3000}
+        angle="45deg"
+        >
         <Switch>
           <Route path="/playlists/:name/:songname"
             render={()=> <SongDetail currentSong={this.state.currentSong}/>}/>
           <Route path="/playlists/:name"
-            render={()=> <SongList currentPlaylist={this.state.currentPlaylist} trackList={this.state.trackList} selectedTrackCard={this.selectedTrackCard} user={this.state.user} addPlayistToUser={this.addPlayistToUser}/>}/>
+            render={()=> <SongList currentPlaylist={this.state.currentPlaylist} trackList={this.state.trackList} selectedTrackCard={this.selectedTrackCard} user={this.state.user}   handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser}/>}/>
           <Route exact path="/header"
             render={()=> <Header/> } />
           <Route exact path="/playlists"
-            render={()=> <PlaylistContainer user={this.state.user} selectedPlaylistCard={this.selectedPlaylistCard}/> } />
+            render={()=> <PlaylistContainer user={this.state.user} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer}/> } />
           <Route
             exact path="/webplayerlist"
             render={() => <WebplayerList currentSong={this.state.currentSong} user={this.state.user}/> } />
           <Route
             exact path="/webplayer"
-            render={() => <WebPlayer user={this.state.user || {}} selectedPlaylistCard={this.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser}/> } />
-          <Route
-            exact path="/profiles"
-            render={() => <ProfileContainer/> } />
+            render={() => <WebPlayer user={this.state.user || {}} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser}/> } />
           <Route
             exact path="/signup"
             render={ () => <SignUp handleSubmitForSignUp={this.handleSubmitForSignUp}/> } />
@@ -181,6 +192,7 @@ class App extends Component {
             path="/"
             component={Error} />
         </Switch>
+          </Gradient>
       </div>
     );
   }

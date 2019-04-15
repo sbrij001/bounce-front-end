@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #fff;
+  padding: 20rem 0;
+}
+.card {
+
+  width: 300px;
+  height: 300px;
+  display: inline-grid;
+  margin: 1rem 1rem 1rem 1rem;
+  transition: transform .3s;
+  border-radius: 50px;
+
+  &:hover{
+    transform: translateX(-1.5rem) scale(1.03);
+  }
+
+
+}
+.text{
+  text-align: center;
+  font-size: 1.5rem;
+}
+.media {
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    padding: 5% 5% 5% 5%;
+}
+
+.home {
+  background-color: red;
+}

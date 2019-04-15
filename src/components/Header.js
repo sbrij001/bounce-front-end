@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/main.scss'
 
 //style
 import header from '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/header.css';

@@ -3,7 +3,7 @@ import PlaylistCard from './PlaylistCard';
 import UserPlaylistCard from './PlaylistCard';
 import { withRouter } from 'react-router-dom';
 import Navbar from './NavBar';
-
+import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/container.scss'
 class WebPlayer extends React.Component{
   state = {
     top: [],
@@ -92,13 +92,13 @@ class WebPlayer extends React.Component{
   // }
   renderTopToPage = () => {
     const newArr = this.state.top.map( playlist => {
-      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard}/>
+      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
     })
       return newArr
   }
   renderAllPlaylistsToPage = () => {
     const newArr = this.state.allPlaylists.map( playlist => {
-      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser}/>
+      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
     })
       return newArr
   }
@@ -111,18 +111,9 @@ class WebPlayer extends React.Component{
       return newArr
   }
 
-  // greeting = (props) => {
-  //   const isLoggedIn = this.props.user.length > 1 ;
-  //   const user = this.props.user.user.name
-  //
-  //   if (isLoggedIn) {
-  //     return `Welcome ${user}` ;
-  //   }else
-  //     return "Welcome!";
-  // }
-
 
   render(){
+
 
     console.log('web player props', this.props);
     return(
@@ -140,7 +131,6 @@ class WebPlayer extends React.Component{
         <h2>A Little Bit Of Everything</h2>
         {this.renderAllPlaylistsToPage()}
         </div>
-
       </div>
     )
   }

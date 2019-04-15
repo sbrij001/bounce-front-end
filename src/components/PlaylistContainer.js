@@ -3,6 +3,7 @@ import { Route, withRouter } from 'react-router-dom';
 import PlaylistCard from './PlaylistCard';
 import SongCard from './SongCard';
 
+//css
 class PlaylistContainer extends React.Component{
   state = {
     playlistsArr: [],
@@ -25,7 +26,7 @@ class PlaylistContainer extends React.Component{
 
   renderPlaylistCard = () => {
     const newArr = this.state.playlistsArr.map( playlist => {
-      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} />
+      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
     })
       return newArr
   }

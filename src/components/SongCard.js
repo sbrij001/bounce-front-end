@@ -7,7 +7,8 @@ class SongCard extends React.Component{
     playingURL: "",
     audio: null,
     playing: false,
-    title: null
+    title: null,
+    songArtist: null
   }
 
   componentDidMount = () => {
@@ -37,6 +38,8 @@ class SongCard extends React.Component{
 //      }
 //  }
 // }
+
+  //plays song and updates the webplayer in the backend with the song title and artist.
   playAudio(previewURL,trackName){
       let audio = new Audio(previewURL)
       audio.play()
@@ -85,7 +88,7 @@ class SongCard extends React.Component{
           <h3 className="song-artist">{this.props.track.artistName}</h3>
           <h4 className="song-album-name">{this.props.track.albumName}</h4>
           <div>
-          <button onClick={ () => this.playAudio(this.props.track.previewURL, this.props.track.name) }>PLAY</button>
+          <button onClick={ () => this.playAudio(this.props.track.previewURL, this.props.track.name, this.props.track.artist) }>PLAY</button>
           <button onClick={ () => this.pauseAudio(this.props.track.previewURL) }>PAUSE</button>
           <Link to={`/playlists/${this.props.currentPlaylist.name}/${this.props.track.name}`}>
             <button onClick={this.handleClick}>View Song</button>

@@ -39,7 +39,6 @@ class SongList extends React.Component{
 
   savePlaylist = (event) => {
     let token = localStorage.token
-    console.log(this.props);
     fetch("http://localhost:3000/api/v1/user_playlists", {
 
       method: "POST",

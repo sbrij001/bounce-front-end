@@ -1,8 +1,18 @@
-import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/_composition.scss'
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import SongList from './SongList'
-import CardCSS from '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/CardCSS.css'
+//css/sass
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/_feature-box.scss'
+
 class PlaylistCard extends React.Component{
   state = {
     clicked: false
@@ -27,24 +37,42 @@ class PlaylistCard extends React.Component{
   // console.log('blerg', this.props.playlist.name);
     // formattedName = () => {return this.props.playlist.name.replace(' ', '-')}
 
+
   render(){
-    //console.log('PlaylistCard',this.props.playlist);
+    // console.log('PlaylistCard',this.props);
+    const styles = {
+      card: {
+        maxWidth: 345,
+      },
+      media: {
+        objectFit: 'cover',
+      },
+    };
 
     return(
-      <section className="section-features">
-        <div className="row">
-          <div className="col-1-of-4">
-            <div class="feature-box">
-              <Link to={`/playlists/${this.props.playlist.name}`}>
-                <img alt="album cover" className="composition__photo composition__photo--p1" src={this.props.playlist.images? this.props.playlist.images[0].url : null} onClick={this.handleClick}/>
-              </Link>
-              <h3 className="heading-tertiary">{ this.props.playlist.length ? this.props.playlist[0].name : this.props.playlist.name }</h3>
-              <p className="feature-box__text">{this.props.playlist.description}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <Link to={`/playlists/${this.props.playlist.name}`}>
+          <Card className="card">
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="playlist"
+              className="media"
+              spacing={0}
+              alignItems="center"
+              justify="center"
+              image={this.props.playlist.images? this.props.playlist.images[0].url : null} onClick={this.handleClick}
+              title="PlaylistCard"
+            />
+            <CardContent className="text">
+              <Typography gutterBottom variant="h5" component="h2">
+                { this.props.playlist.length ? this.props.playlist[0].name : this.props.playlist.name }
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          </Card>
+        </Link>
     )
   }
 }
+
 export default withRouter(PlaylistCard);
