@@ -25,7 +25,9 @@ class WebplayerList extends React.Component {
       },
     })
     .then(resp => resp.json())
-    .then( webplayers => this.setState({ webplayers: webplayers }));
+    .then( webplayers => {
+      this.setState({ webplayers: webplayers })
+    });
   };
 
   componentDidUpdate = (prevState) => {
@@ -69,7 +71,6 @@ class WebplayerList extends React.Component {
 
   render = () => {
     console.log('WEBPLAYERLIST', this.state.webplayers);
-    // console.log(this.state.webplayers);
     const { webplayers, activeWebplayer } = this.state;
     return (
       <div className="webplayersList">
@@ -84,7 +85,7 @@ class WebplayerList extends React.Component {
           />
         ) : null}
         <h2>Webplayers</h2>
-        <ul>{mapWebplayers(webplayers, this.handleClick)}</ul>
+        <ul>{mapWebplayers(webplayers, this.handleClick, this.props.user)}</ul>
         <NewWebplayerForm/>
         {activeWebplayer ? (
           <UserSongsArea
@@ -109,11 +110,13 @@ const findActiveWebplayer = (webplayers, activeWebplayer) => {
   );
 }
 
-const mapWebplayers = (webplayers, handleClick) => {
+const mapWebplayers = (webplayers, handleClick, user) => {
+  console.log('USER', user);
   return webplayers.map(webplayer => {
+    console.log('in map webplayers',webplayer)
     return (
       <li key={webplayer.id} onClick={() => handleClick(webplayer.id)}>
-        {webplayer.title}
+        {webplayer.username} is listening to {webplayer.title}
       </li>
     );
   });

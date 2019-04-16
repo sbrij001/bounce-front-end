@@ -9,6 +9,7 @@ import Home from './components/Home';
 import WebplayerList from './components/WebplayerList';
 import WebPlayer from './components/WebPlayer';
 import PlaylistContainer from './components/PlaylistContainer';
+import MapBox from './components/MapBox';
 import SongList from './components/SongList';
 import SongCard from './components/SongCard';
 import SongDetail from './components/SongDetail';
@@ -53,9 +54,9 @@ class App extends Component {
         }
       })
       .then( resp => resp.json())
-      .then(user => {
+      .then(({user}) => {
         this.setState({user: user }, () => {
-          this.props.history.push("/webplayer")
+          this.props.history.push("/header")
         });
       })
     : (this.props.history.push("/login"))
@@ -73,7 +74,7 @@ class App extends Component {
       body: JSON.stringify({ user: userData })
     })
     .then(resp => resp.json())
-    .then(userInfo => {
+    .then((userInfo) => {
       this.setState({ user: userInfo.user }, () => {
         localStorage.setItem("token", userInfo.jwt )
         this.props.history.push("/playlists")
@@ -92,10 +93,10 @@ class App extends Component {
       })
       .then(resp => resp.json())
       .then(userInfo => {
-          console.log(userInfo)
+          // console.log(userInfo)
           localStorage.token = userInfo.jwt
           this.setState({ user: userInfo.user },
-          () => this.props.history.push("/webplayer"));
+          () => this.props.history.push("/header"));
       })
     }
 
@@ -157,7 +158,7 @@ class App extends Component {
     //browser router listens for the change in route and tells the application what to do based on the route.
     return (
       <div>
-        <NewNav/>
+        <NavBar/>
         <Gradient
         gradients={gradients.disgust} // required
         property="background"
@@ -166,19 +167,19 @@ class App extends Component {
         >
         <Switch>
           <Route path="/playlists/:name/:songname"
-            render={()=> <SongDetail currentSong={this.state.currentSong}/>}/>
+            render={()=> <SongDetail currentSong={this.state.currentSong} />}/>
           <Route path="/playlists/:name"
             render={()=> <SongList currentPlaylist={this.state.currentPlaylist} trackList={this.state.trackList} selectedTrackCard={this.selectedTrackCard} user={this.state.user}   handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser}/>}/>
           <Route exact path="/header"
             render={()=> <Header/> } />
           <Route exact path="/playlists"
-            render={()=> <PlaylistContainer user={this.state.user} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer}/> } />
+            render={()=> <PlaylistContainer user={this.state.user} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} currentPlaylist={this.state.currentPlaylist}/> } />
           <Route
             exact path="/webplayerlist"
-            render={() => <WebplayerList currentSong={this.state.currentSong} user={this.state.user}/> } />
+            render={() => <WebplayerList currentPlaylist={this.state.currentPlaylist} currentSong={this.state.currentSong} user={this.state.user}/> } />
           <Route
             exact path="/webplayer"
-            render={() => <WebPlayer user={this.state.user || {}} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser}/> } />
+            render={() => <WebPlayer user={this.state.user || {}} currentPlaylist={this.state.currentPlaylist} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser}/> } />
           <Route
             exact path="/signup"
             render={ () => <SignUp handleSubmitForSignUp={this.handleSubmitForSignUp}/> } />

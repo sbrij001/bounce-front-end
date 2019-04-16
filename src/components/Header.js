@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/main.scss'
-
+import MapBox from './MapBox'
 //style
 import header from '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/header.css';
 
@@ -9,8 +9,8 @@ const Header = props => {
   return (
     <div>
     <header className="header">
-      <div class="triangle first"></div>
-      <div class="triangle second"></div>
+      <div className="triangle first"></div>
+      <div className="triangle second"></div>
 
       <svg width='0' height='0'>
       <defs>
@@ -21,7 +21,7 @@ const Header = props => {
       </svg>
 
       <div className="text-box">
-        <h1 class="heading-primary">
+        <h1 className="heading-primary">
           <span className="heading-primary-main">Bounce</span>
           <span className="heading-primary-sub">Bacon ipsum dolor amet short loin drumstick</span>
         </h1>
@@ -29,6 +29,7 @@ const Header = props => {
         <Link to={`/webplayer/`}>
           <a href="/webplayer" className="btn btn-white btn-animated"> Discover Music </a>
         </Link>
+
 
       </div>
 

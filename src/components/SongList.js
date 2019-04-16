@@ -32,7 +32,7 @@ class SongList extends React.Component{
 
   renderTracks = () => {
       const newArr = this.state.trackList.map(track => {
-        return <SongCard key={track.id} track={track} selectedTrackCard={this.props.selectedTrackCard} currentPlaylist={this.props.currentPlaylist}/>
+        return <SongCard key={track.id} track={track} selectedTrackCard={this.props.selectedTrackCard} currentPlaylist={this.props.currentPlaylist} user={this.props.user}/>
       })
       return newArr
   }

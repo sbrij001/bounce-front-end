@@ -40,7 +40,10 @@ class SongCard extends React.Component{
 // }
 
   //plays song and updates the webplayer in the backend with the song title and artist.
-  playAudio(previewURL,trackName){
+  playAudio(previewURL,trackName,user){
+    // console.log('trackname', trackName);
+    // console.log(this.props);
+    console.log('in play audio', user)
       let audio = new Audio(previewURL)
       audio.play()
       this.setState({
@@ -51,11 +54,18 @@ class SongCard extends React.Component{
       })
       fetch(`${API_ROOT}/webplayers`, {
         method: 'POST',
-        headers: HEADERS,
+        headers:{
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${localStorage.token}`
+        },
         body: JSON.stringify({
-          title: trackName
+          title: trackName,
+          user_id: user.id
         })
-      });
+      })
+      .then(resp => resp.json())
+      .then(console.log)
   }
 
   pauseAudio(previewURL){
@@ -80,7 +90,7 @@ class SongCard extends React.Component{
   }
 
   render(){
-    console.log('Song card props',this.props.track);
+    console.log('Song card props',this.props);
     return(
       <div>
         <div className="-info">
@@ -88,7 +98,7 @@ class SongCard extends React.Component{
           <h3 className="song-artist">{this.props.track.artistName}</h3>
           <h4 className="song-album-name">{this.props.track.albumName}</h4>
           <div>
-          <button onClick={ () => this.playAudio(this.props.track.previewURL, this.props.track.name, this.props.track.artist) }>PLAY</button>
+          <button onClick={ () => this.playAudio(this.props.track.previewURL, this.props.track.name, this.props.user) }>PLAY</button>
           <button onClick={ () => this.pauseAudio(this.props.track.previewURL) }>PAUSE</button>
           <Link to={`/playlists/${this.props.currentPlaylist.name}/${this.props.track.name}`}>
             <button onClick={this.handleClick}>View Song</button>

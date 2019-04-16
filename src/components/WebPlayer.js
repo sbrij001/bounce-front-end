@@ -3,7 +3,10 @@ import PlaylistCard from './PlaylistCard';
 import UserPlaylistCard from './PlaylistCard';
 import { withRouter } from 'react-router-dom';
 import Navbar from './NavBar';
+import MapBox from './MapBox';
+//css
 import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/container.scss'
+
 class WebPlayer extends React.Component{
   state = {
     top: [],
@@ -92,13 +95,13 @@ class WebPlayer extends React.Component{
   // }
   renderTopToPage = () => {
     const newArr = this.state.top.map( playlist => {
-      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
+      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} currentPlaylist={this.props.currentPlaylist} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer} />
     })
       return newArr
   }
   renderAllPlaylistsToPage = () => {
     const newArr = this.state.allPlaylists.map( playlist => {
-      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
+      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} currentPlaylist={this.props.currentPlaylist} addPlayistToUser={this.addPlayistToUser} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
     })
       return newArr
   }
@@ -106,7 +109,7 @@ class WebPlayer extends React.Component{
   renderUserPlaylistToPage = () => {
     //console.log('userPlaylists', this.state.userPlaylists);
     const newArr = this.state.userPlaylists.map( playlist => {
-      return <UserPlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser}/>
+      return <UserPlaylistCard key={playlist.id} playlist={playlist} currentPlaylist={this.props.currentPlaylist} selectedPlaylistCard={this.props.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser}/>
     })
       return newArr
   }
@@ -115,7 +118,7 @@ class WebPlayer extends React.Component{
   render(){
 
 
-    console.log('web player props', this.props);
+    console.log('WEBPLAYER PROPS', this.props);
     return(
       <div className="featured">
         <h1>Welcome</h1>
@@ -131,6 +134,7 @@ class WebPlayer extends React.Component{
         <h2>A Little Bit Of Everything</h2>
         {this.renderAllPlaylistsToPage()}
         </div>
+        <MapBox/>
       </div>
     )
   }
