@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 import Wavelength from './Wavelength'
+import { Button, Icon } from 'semantic-ui-react';
 
 class SongDetail extends React.Component{
   state = {
@@ -39,8 +40,7 @@ class SongDetail extends React.Component{
   render(){
     console.log('song detail', this.props);
     return(
-      <div>
-
+      <div id="card">
         <div class="ui centered card">
           <div class="image">
             <img src="https://media.idownloadblog.com/wp-content/uploads/2018/03/Apple-Music-icon-001.jpg"/>
@@ -50,8 +50,14 @@ class SongDetail extends React.Component{
             <p className="description">Name: {this.props.currentSong.name}</p>
             <p className="description">Album: {this.props.currentSong.albumName}</p>
           </div>
-          <button className="btn btn-white btn-animated" onClick={ () => this.playAudio(this.props.currentSong.previewURL) }>PLAY</button>
-          <button className="btn btn-white btn-animated" onClick={ () => this.pauseAudio(this.props.currentSong.previewURL) }>PAUSE</button>
+          <Button.Group icon>
+          <Button onClick={ () => this.playAudio(this.props.currentSong.previewURL) }>
+            <Icon name='play' />
+          </Button>
+          <Button onClick={ () => this.pauseAudio(this.props.currentSong.previewURL) }>
+            <Icon name='pause' />
+          </Button>
+        </Button.Group>
         </div>
       </div>
     )
