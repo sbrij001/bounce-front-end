@@ -1,6 +1,10 @@
 import React from 'react';
 import SongCard from './SongCard';
 import { Link, withRouter } from 'react-router-dom';
+import { Button, Segment } from 'semantic-ui-react'
+
+//css
+import '../style/sass/components/songList.scss';
 //withRouter gives the app the props
 class SongList extends React.Component{
   state = {
@@ -70,8 +74,8 @@ class SongList extends React.Component{
     console.log("SongList props", this.props);
     return(
       <div>
-      <button onClick={this.savePlaylist}>Add Playlist To Library</button>
       {this.renderTracks()}
+      <Button inverted color='teal' id='addPlaylist' onClick={this.savePlaylist}>Add Playlist To Library</Button>
       </div>
     )
   }

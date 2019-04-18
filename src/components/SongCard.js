@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { API_ROOT, HEADERS } from '../constants'
+import { API_ROOT, HEADERS } from '../constants';
+import { Button, Image, List } from 'semantic-ui-react';
+//css
+import '../style/sass/components/songCard.scss';
 class SongCard extends React.Component{
   state = {
     albumImage: [],
@@ -87,23 +90,28 @@ class SongCard extends React.Component{
     this.props.history.push("/playlists/:name/:songname")
   }
 
+  //play and pause buttons
+  // <button onClick={ () => this.playAudio(this.props.track.previewURL, this.props.track.name, this.props.user) }>PLAY</button>
+  // <button onClick={ () => this.pauseAudio(this.props.track.previewURL) }>PAUSE</button>
   render(){
     console.log('Song card props',this.props);
     return(
-      <div>
-        <div className="-info">
-          <h2 className="song-name">{this.props.track.name}</h2>
-          <h3 className="song-artist">{this.props.track.artistName}</h3>
-          <h4 className="song-album-name">{this.props.track.albumName}</h4>
-          <div>
-          <button onClick={ () => this.playAudio(this.props.track.previewURL, this.props.track.name, this.props.user) }>PLAY</button>
-          <button onClick={ () => this.pauseAudio(this.props.track.previewURL) }>PAUSE</button>
+      <div className="song">
+      <List inverted divided verticalAlign='middle' >
+
+        <List.Item>
+          <List.Content floated='right'>
           <Link to={`/playlists/${this.props.currentPlaylist.name}/${this.props.track.name}`}>
-            <button onClick={this.handleClick}>View Song</button>
+          <Button inverted color='teal' onClick={this.handleClick}> View Song</Button>
           </Link>
-          </div>
-        </div>
+          </List.Content>
+          <Image classname="img" avatar src="https://media.giphy.com/media/fTaq9ZRtm5Qsg/giphy.gif" />
+          <List.Content> {this.props.track.name}   |   |   {this.props.track.artistName} </List.Content>
+          <List.Content></List.Content>
+        </List.Item>
+      </List>
       </div>
+
     )
   }
 }
