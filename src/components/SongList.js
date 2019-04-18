@@ -20,8 +20,9 @@ class SongList extends React.Component{
     if(this.props.currentPlaylist.links){
       href = this.props.currentPlaylist.links.tracks.href
     }
-    const url = `${href}${apiKey}`
-      console.log('url',url);
+    console.log(this.props);
+    if(href){
+      const url = `${href}${apiKey}`
       fetch(url)
       .then(resp => resp.json())
       .then(tracksData => {
@@ -29,6 +30,7 @@ class SongList extends React.Component{
           trackList: tracksData.tracks
         })
       })
+    }
   }
 
   renderTracks = () => {
@@ -68,7 +70,6 @@ class SongList extends React.Component{
     console.log("SongList props", this.props);
     return(
       <div>
-      <h1>Song List</h1>
       <button onClick={this.savePlaylist}>Add Playlist To Library</button>
       {this.renderTracks()}
       </div>

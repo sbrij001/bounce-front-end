@@ -40,12 +40,6 @@ class SongDetail extends React.Component{
     console.log('song detail', this.props);
     return(
       <div>
-        <h1>Song Details</h1>
-        <h2>Name: {this.props.currentSong.name}</h2>
-        <h3>Album: {this.props.currentSong.albumName}</h3>
-        <button onClick={ () => this.playAudio(this.props.currentSong.previewURL) }>PLAY</button>
-        <button onClick={ () => this.pauseAudio(this.props.currentSong.previewURL) }>PAUSE</button>
-
 
         <div class="ui centered card">
           <div class="image">
@@ -56,6 +50,8 @@ class SongDetail extends React.Component{
             <p className="description">Name: {this.props.currentSong.name}</p>
             <p className="description">Album: {this.props.currentSong.albumName}</p>
           </div>
+          <button className="btn btn-white btn-animated" onClick={ () => this.playAudio(this.props.currentSong.previewURL) }>PLAY</button>
+          <button className="btn btn-white btn-animated" onClick={ () => this.pauseAudio(this.props.currentSong.previewURL) }>PAUSE</button>
         </div>
       </div>
     )

@@ -22,6 +22,7 @@ class PlaylistCard extends React.Component{
 // which sets the state of current playlist to the selected playlist
 // in app I pass that currentPlaylist to the songList
   handleClick = (event) => {
+    console.log("playlist? ", this.props);
     this.props.selectedPlaylistCard(this.props.playlist)
     this.setState({
       clicked: !this.state.clicked
@@ -51,16 +52,17 @@ class PlaylistCard extends React.Component{
 
     return(
         <Link to={`/playlists/${this.props.playlist.name}`}>
-          <Card className="card" id="important">
+          <Card className="card" id="important" onClick={this.handleClick}>
           <CardActionArea>
             <CardMedia
+
               component="img"
               alt="playlist"
               className="media"
               spacing={0}
               alignItems="center"
               justify="center"
-              image={this.props.playlist.images? this.props.playlist.images[0].url : null} onClick={this.handleClick}
+              image={this.props.playlist.images? this.props.playlist.images[0].url : null}
               title="PlaylistCard"
             />
             <CardContent className="text">
