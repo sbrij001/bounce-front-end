@@ -1,5 +1,9 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import { Button, Form } from 'semantic-ui-react'
+
+//scss
+import '../style/sass/components/login.scss';
 
 class Login extends React.Component{
   state = {
@@ -32,12 +36,36 @@ class Login extends React.Component{
     // console.log(this.props);
     return(
       <div>
-      <h1>Log In</h1>
-      <form onSubmit={this.handleSubmitForLogin}>
-        <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.changeHandler}/>
-        <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
-        <button>Log In</button>
-      </form>
+
+      <div className="square first"></div>
+      <div className="square second"></div>
+
+      <svg width='0' height='0'>
+      <defs>
+      <clipPath id="cp" clipPathUnits="objectBoundingBox">
+      <path d="M0.500, 0.945 L0.994, 0.090 L0.006, 0.090 L0.500, 0.945 L0.500, 0.650 L0.262, 0.238 L0.738, 0.237 L0.500, 0.650z"></path>
+      </clipPath>
+      </defs>
+      </svg>
+
+      <div className="login">
+      <Form size={'massive'} key="{'massive'}" onSubmit={this.handleSubmitForLogin}>
+        <Form.Field>
+          <label>Email</label>
+          <div class="ui input focus">
+          <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.changeHandler}/>
+          </div>
+        </Form.Field>
+        <Form.Field>
+          <label>Last Name</label>
+          <div class="ui input focus">
+          <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
+          </div>
+        </Form.Field>
+        <button  id="btn" className="ui teal basic button" type="submit">Log In</button>
+      </Form>
+      </div>
+
       </div>
     )
   }

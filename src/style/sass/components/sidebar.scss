@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body{
+  color: #fff;
+}
+
+.bm-menu-wrap  {
+  background-color: rgb(234, 191, 178);
+  font-weight: 400;
+  font-family: 'Karla', sans-serif;
+  text-decoration: none;
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 0.5rem;
+}
+
+#sidebar{
+
+}
+.nav-btn {
+  &::before,
+  &::after{
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    content: "";
+    display: block;
+  }
+}
+
+li {
+  text-decoration: none;
+}

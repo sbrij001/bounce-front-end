@@ -134,7 +134,7 @@ navigator.mediaDevices
 return(
   <div>
   <p id="realtime-container">
-  <canvas id="waveform-realtime" width="800"></canvas>
+  <canvas id="waveform-realtime" width="290" height="20"></canvas>
   </p>
   </div>
 )

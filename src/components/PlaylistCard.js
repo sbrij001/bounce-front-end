@@ -51,7 +51,7 @@ class PlaylistCard extends React.Component{
 
     return(
         <Link to={`/playlists/${this.props.playlist.name}`}>
-          <Card className="card">
+          <Card className="card" id="important">
           <CardActionArea>
             <CardMedia
               component="img"

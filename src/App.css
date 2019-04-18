@@ -10,7 +10,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,4 +30,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+  font-family: 'Karla', sans-serif;
+  background: radial-gradient(#fff, #1c2d3d)
+
+}
+text{
+  text-align: center;
+}
+
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }

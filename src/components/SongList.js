@@ -16,18 +16,19 @@ class SongList extends React.Component{
 
   componentDidMount = () => {
     const apiKey = '?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5&limit=10';
-    const href = this.props.currentPlaylist.links.tracks.href
+    let href
+    if(this.props.currentPlaylist.links){
+      href = this.props.currentPlaylist.links.tracks.href
+    }
     const url = `${href}${apiKey}`
-    console.log('URL THAT IM GETTING',url);
-    url
-      ? fetch(url)
+      console.log('url',url);
+      fetch(url)
       .then(resp => resp.json())
       .then(tracksData => {
         this.setState({
           trackList: tracksData.tracks
         })
       })
-      : console.log('hi');
   }
 
   renderTracks = () => {
@@ -49,7 +50,7 @@ class SongList extends React.Component{
       },
       body: JSON.stringify({
         user_playlist: {
-          user_id: this.props.user.user.id,
+          user_id: this.props.user.id,
           napster_playlist_id: this.props.currentPlaylist.id,
           playlist_id: 1
         }
@@ -57,7 +58,7 @@ class SongList extends React.Component{
     })
     .then(resp => resp.json())
     .then(playlist => {
-      console.log(this.props.user.user.id)
+      // console.log(this.props.user.user.id)
       this.props.addPlayistToUser(this.state)
     })
   }

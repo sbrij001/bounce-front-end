@@ -16,14 +16,16 @@ import SongDetail from './components/SongDetail';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Error from './components/Error';
-import NavBar from './components/NavBar';
-import NewNav from './components/NewNav'
+import Sidebar from './components/Sidebar';
+import LastNav from './components/LastNav';
+import NewNav from './components/NewNav';
 import Header from './components/Header';
+import HomeContainer from './components/HomeContainer';
 
 //css
 import './App.css';
-import {Gradient} from 'react-gradient';
-import {gradients} from './components/gradient';
+// import {Gradient} from 'react-gradient';
+// import {gradients} from './components/gradient';
 import "/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/navigation.scss"
 
 // <Route exact path="/playlists/:name" render={()=> <PlaylistContainer/>} />
@@ -150,6 +152,12 @@ class App extends Component {
   //   this.afterSelectPlaylistCard(playlistObj)
   // }
 
+  // <Gradient
+  // gradients={gradients.disgust} // required
+  // property="background"
+  // duration={3000}
+  // angle="45deg"
+  // >
 
   render() {
 
@@ -158,18 +166,14 @@ class App extends Component {
     //browser router listens for the change in route and tells the application what to do based on the route.
     return (
       <div>
-        <NavBar/>
-        <Gradient
-        gradients={gradients.disgust} // required
-        property="background"
-        duration={3000}
-        angle="45deg"
-        >
+        <LastNav/>
         <Switch>
           <Route path="/playlists/:name/:songname"
             render={()=> <SongDetail currentSong={this.state.currentSong} />}/>
           <Route path="/playlists/:name"
             render={()=> <SongList currentPlaylist={this.state.currentPlaylist} trackList={this.state.trackList} selectedTrackCard={this.selectedTrackCard} user={this.state.user}   handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser}/>}/>
+          <Route exact path="/homeexample"
+            render={()=>   <HomeContainer user={this.state.user} user={this.state.user || {}} currentPlaylist={this.state.currentPlaylist} selectedPlaylistCard={this.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.handleClickForPostingSongToWebplayer} addPlayistToUser={this.addPlayistToUser} /> } />
           <Route exact path="/header"
             render={()=> <Header/> } />
           <Route exact path="/playlists"
@@ -193,7 +197,6 @@ class App extends Component {
             path="/"
             component={Error} />
         </Switch>
-          </Gradient>
       </div>
     );
   }

@@ -22,6 +22,9 @@ const Navbar = props => {
       <Link to="/webplayerlist">
         <li>chat</li>
       </Link>
+      <Link to="/homeexample">
+        <li>homeexample</li>
+      </Link>
       <li onClick={() => {
         localStorage.removeItem("token");
         props.history.push("/signup");

@@ -1,0 +1,47 @@
+.signup{
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+#btn{
+  margin-left: 25%;
+  width: 50%
+}
+
+.square {
+  /* // The actual clipping effect */
+  clip-path: url(#cp);
+
+  /* // Keep it proportional */
+  width: 50vw;
+  height: 50vw;
+  max-height: 75vh;
+  max-width: 75vh;
+
+  /* // Add the styling */
+  background-size: cover;
+  background-blend-mode: screen;
+
+  /* // Center them */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.first {
+
+  background-image: url("https://media.giphy.com/media/YMeiK7R5ExpIwH9JXY/giphy.gif");
+  transform: translateX(-65%) translateY(-50%);
+}
+
+.second {
+
+  background-image: url("https://media.giphy.com/media/l41lFj8afmWIo3yW4/giphy.gif");
+  transform: translateX(-35%) translateY(-50%);
+  opacity: 0.8;
+}
+
+body{
+  color: #fff;
+}

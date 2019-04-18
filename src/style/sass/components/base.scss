@@ -1,0 +1,54 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html{
+  box-sizing: border-box;
+  font-size: 62.5%
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+}
+.container {
+  display: grid;
+  grid-auto-rows: 80vh min-content;
+  grid-template-columns: 1fr;
+
+  & > * {
+    padding: 40px;
+    font-size: 3rem;
+  }
+}
+
+
+  h1{
+    font-size: 20vh;
+   -webkit-text-stroke: 1px #9FD2D6;
+   text-align: center;
+   color: white;
+   text-shadow:
+       3px 3px 0 #9FD2D6,
+     -1px -1px 0 #9FD2D6,
+      1px -1px 0 #9FD2D6,
+      -1px 1px 0 #9FD2D6,
+       1px 1px 0 #9FD2D6;
+  font-family: 'Karla', sans-serif;
+  letter-spacing: 0.3rem;
+}
+
+h2 {
+  -webkit-text-stroke: 1px #9FD2D6;
+  color: white;
+  text-shadow:
+      3px 3px 0 #600202,
+    -1px -1px 0 #600202,
+     1px -1px 0 #600202,
+     -1px 1px 0 #600202,
+      1px 1px 0 #600202;
+ font-family: 'Karla', sans-serif;
+ letter-spacing: 0.5rem;
+}

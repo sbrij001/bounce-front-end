@@ -64,8 +64,6 @@ class SongCard extends React.Component{
           user_id: user.id
         })
       })
-      .then(resp => resp.json())
-      .then(console.log)
   }
 
   pauseAudio(previewURL){

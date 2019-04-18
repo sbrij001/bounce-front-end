@@ -14,6 +14,7 @@ class PlaylistContainer extends React.Component{
 // else push to the login
 //this.state.playlistsArr.playlists[0].links.tracks
   componentDidMount = () => {
+    console.log(this.props.user);
     Object.keys(this.props.user).length > 0
     ? fetch("http://api.napster.com/v2.2/playlists/featured?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5")
     .then(resp => resp.json())
@@ -26,7 +27,7 @@ class PlaylistContainer extends React.Component{
 
   renderPlaylistCard = () => {
     const newArr = this.state.playlistsArr.map( playlist => {
-      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer}/>
+      return <PlaylistCard key={playlist.id} playlist={playlist} selectedPlaylistCard={this.props.selectedPlaylistCard} handleClickForPostingSongToWebplayer={this.props.handleClickForPostingSongToWebplayer} currentPlaylist={this.props.currentPlaylist}/>
     })
       return newArr
   }
@@ -39,7 +40,7 @@ class PlaylistContainer extends React.Component{
     console.log('container', this.props);
     return(
       <div>
-        <h1>Playlist Container</h1>
+        <h1>Browse</h1>
         <Route path="/https://api.napster.com/v2.2/playlists/" render={() => SongCard}/>
         {this.renderPlaylistCard()}
       </div>

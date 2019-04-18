@@ -2,7 +2,6 @@ import React from 'react';
 import PlaylistCard from './PlaylistCard';
 import UserPlaylistCard from './PlaylistCard';
 import { withRouter } from 'react-router-dom';
-import Navbar from './NavBar';
 import MapBox from './MapBox';
 //css
 import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/container.scss'
@@ -107,7 +106,7 @@ class WebPlayer extends React.Component{
   }
 
   renderUserPlaylistToPage = () => {
-    //console.log('userPlaylists', this.state.userPlaylists);
+    console.log('userPlaylists', this.state.userPlaylists);
     const newArr = this.state.userPlaylists.map( playlist => {
       return <UserPlaylistCard key={playlist.id} playlist={playlist} currentPlaylist={this.props.currentPlaylist} selectedPlaylistCard={this.props.selectedPlaylistCard} addPlayistToUser={this.addPlayistToUser}/>
     })
@@ -120,8 +119,7 @@ class WebPlayer extends React.Component{
 
     console.log('WEBPLAYER PROPS', this.props);
     return(
-      <div className="featured">
-        <h1>Welcome</h1>
+      <div className="webplayer">
         <div>
         <h2>Recently Played</h2>
         {this.renderUserPlaylistToPage()}

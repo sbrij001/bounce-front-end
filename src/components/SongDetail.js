@@ -45,7 +45,18 @@ class SongDetail extends React.Component{
         <h3>Album: {this.props.currentSong.albumName}</h3>
         <button onClick={ () => this.playAudio(this.props.currentSong.previewURL) }>PLAY</button>
         <button onClick={ () => this.pauseAudio(this.props.currentSong.previewURL) }>PAUSE</button>
-        <Wavelength/>
+
+
+        <div class="ui centered card">
+          <div class="image">
+            <img src="https://media.idownloadblog.com/wp-content/uploads/2018/03/Apple-Music-icon-001.jpg"/>
+            <Wavelength/>
+          </div>
+          <div class="content">
+            <p className="description">Name: {this.props.currentSong.name}</p>
+            <p className="description">Album: {this.props.currentSong.albumName}</p>
+          </div>
+        </div>
       </div>
     )
   }

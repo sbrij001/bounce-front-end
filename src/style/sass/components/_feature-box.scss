@@ -3,18 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  background-color: #fff;
-  padding: 20rem 0;
+
+#important{
+
+  color: #fff
 }
 .card {
-
-  width: 300px;
-  height: 300px;
+  width: 30vh;
+  height: 37vh;
   display: inline-grid;
   margin: 1rem 1rem 1rem 1rem;
   transition: transform .3s;
   border-radius: 50px;
+  justify-content: center;
+  border: 2px solid #fff;
 
   &:hover{
     transform: translateX(-1.5rem) scale(1.03);
@@ -24,12 +26,16 @@ body{
 }
 .text{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: .5rem;
+  color: #fff;
+  text-decoration: none;
 }
 .media {
-    width: 200px;
-    height: 200px;
-    border-radius: 50px;
+    width: 90px;
+    height: 145px;
+    margin-bottom: 10px;
+    border-radius: 15px;
     padding: 5% 5% 5% 5%;
 }
 

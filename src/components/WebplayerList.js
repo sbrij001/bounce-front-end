@@ -4,14 +4,20 @@ import { API_ROOT } from '../constants';
 import NewWebplayerForm from './NewWebplayerForm';
 import UserSongsArea from './UserSongsArea';
 import Cable from './Cable';
-
+import SemanticSidebar from './SemanticSidebar';
+import {Button,Checkbox,Grid,Header,Icon,Image,Menu,Segment,Sidebar} from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+//css
+import '../style/sass/components/base.scss'
 
   // const webPlayer =
 
 class WebplayerList extends React.Component {
   state = {
     webplayers: [],
-    activeWebplayer: null
+    activeWebplayer: null,
+    visible:false,
+    streaming: []
   };
 
   componentDidMount = () => {
@@ -70,8 +76,8 @@ class WebplayerList extends React.Component {
 
 
   render = () => {
-    console.log('WEBPLAYERLIST', this.state.webplayers);
-    const { webplayers, activeWebplayer } = this.state;
+    console.log('streaming songs', this.state.webplayers);
+    const { webplayers, activeWebplayer, visible } = this.state;
     return (
       <div className="webplayersList">
         <ActionCable
@@ -84,7 +90,8 @@ class WebplayerList extends React.Component {
             handleRecievedUserSong={this.handleRecievedUserSong}
           />
         ) : null}
-        <h2>Webplayers</h2>
+        <h1>Webplayers</h1>
+
         <ul>{mapWebplayers(webplayers, this.handleClick, this.props.user)}</ul>
         <NewWebplayerForm/>
         {activeWebplayer ? (
@@ -95,6 +102,7 @@ class WebplayerList extends React.Component {
           )}
           />
         ):null}
+        <SemanticSidebar streaming={this.state.webplayers}/>
       </div>
     );
   };
@@ -111,13 +119,19 @@ const findActiveWebplayer = (webplayers, activeWebplayer) => {
 }
 
 const mapWebplayers = (webplayers, handleClick, user) => {
-  console.log('USER', user);
   return webplayers.map(webplayer => {
-    console.log('in map webplayers',webplayer)
     return (
-      <li key={webplayer.id} onClick={() => handleClick(webplayer.id)}>
-        {webplayer.username} is listening to {webplayer.title}
-      </li>
+        <div class="ui relaxed divided list">
+        <div class="item">
+          <i class="headphones icon"></i>
+          <div class="content">
+          <p key={webplayer.id} onClick={() => handleClick(webplayer.id)}>
+            {webplayer.username} is listening to {webplayer.title}
+          </p>
+            <div class="description">Updated 5 mins ago</div>
+          </div>
+        </div>
+      </div>
     );
   });
 };
