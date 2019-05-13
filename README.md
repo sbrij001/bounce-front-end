@@ -1,6 +1,6 @@
 # Bounce
 
-# `Listen to music, browse playlists, and see what other users are listening to with Bounce!`
+#### `Listen to music, browse playlists, and see what other users are listening to with Bounce!`
 
 You must have an account to be able to view the website.
 
