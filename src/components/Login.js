@@ -34,8 +34,8 @@ class Login extends React.Component{
     // console.log(this.props);
     return(
       <div>
-      <div className="square first"></div>
-      <div className="square second"></div>
+      <div className="triangle first"></div>
+      <div className="triangle second"></div>
       <svg width='0' height='0'>
       <defs>
       <clipPath id="cp" clipPathUnits="objectBoundingBox">
@@ -83,7 +83,6 @@ class Login extends React.Component{
         </button>
       </Form>
       </div>
-
       </div>
     )
   }
