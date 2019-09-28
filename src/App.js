@@ -24,7 +24,7 @@ import HomeContainer from './components/HomeContainer';
 import './App.css';
 // import {Gradient} from 'react-gradient';
 // import {gradients} from './components/gradient';
-import './style/sass/component/navigation.scss'
+import './style/sass/components/navigation.scss'
 
 // <Route exact path="/playlists/:name" render={()=> <PlaylistContainer/>} />
 class App extends Component {
