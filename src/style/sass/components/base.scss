@@ -24,17 +24,16 @@ body {
   }
 }
 
-
   h1{
     font-size: 20vh;
-   -webkit-text-stroke: 1px #9FD2D6;
+   -webkit-text-stroke: 1px white;
    text-align: center;
-   color: white;
+   color: black;
    text-shadow:
        3px 3px 0 #9FD2D6,
-     -1px -1px 0 #9FD2D6,
+     -1px -1px 0 white,
       1px -1px 0 #9FD2D6,
-      -1px 1px 0 #9FD2D6,
+      -1px 1px 0 white,
        1px 1px 0 #9FD2D6;
   font-family: 'Karla', sans-serif;
   letter-spacing: 0.3rem;

@@ -20,7 +20,7 @@ const Header = props => {
 
       <div className="text-box">
         <h1 className="heading-primary">
-          <span className="heading-primary-main">Bounce</span>
+          <span>Bounce</span>
         </h1>
 
         <Link to={`/webplayer/`}>

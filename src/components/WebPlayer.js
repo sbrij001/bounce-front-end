@@ -4,7 +4,7 @@ import UserPlaylistCard from './PlaylistCard';
 import { withRouter } from 'react-router-dom';
 import MapBox from './MapBox';
 //css
-import header from '../style/sass/components/container.scss';
+
 
 class WebPlayer extends React.Component{
   state = {
