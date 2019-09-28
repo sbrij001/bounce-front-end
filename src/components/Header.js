@@ -1,9 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/main.scss'
-import MapBox from './MapBox'
 //style
-import header from '/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/header.css';
+import '../style/sass/components/main.scss';
+import '../style/sass/components/header.scss';
 
 const Header = props => {
   return (
