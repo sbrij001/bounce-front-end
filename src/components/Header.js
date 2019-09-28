@@ -22,12 +22,12 @@ const Header = props => {
         <h1 className="heading-primary">
           <span>Bounce</span>
         </h1>
-
-        <Link to={`/webplayer/`}>
-          <a href="/webplayer" className="btn btn-white btn-animated"> Discover Music </a>
-        </Link>
-
-
+          <a
+            href="/webplayer"
+            className="btn btn-white btn-animated"
+          >
+          Discover Music
+          </a>
       </div>
 
     </header>
