@@ -1,5 +1,5 @@
 .login{
-  margin-top: 100px;
+  margin-top: 10%;
   display: flex;
   justify-content: center;
 }
@@ -40,4 +40,7 @@
   background-image: url("https://media.giphy.com/media/l41lFj8afmWIo3yW4/giphy.gif");
   transform: translateX(-35%) translateY(-50%);
   opacity: 0.8;
+}
+#label {
+  color: #fff;
 }
