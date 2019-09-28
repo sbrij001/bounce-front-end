@@ -16,7 +16,6 @@ class Login extends React.Component{
 // localStorage.removeItem("token");
 // this.props.history.push("signup");
 // }}
-
   changeHandler = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -31,15 +30,12 @@ class Login extends React.Component{
       password: ""
     });
   };
-
   render(){
     // console.log(this.props);
     return(
       <div>
-
       <div className="square first"></div>
       <div className="square second"></div>
-
       <svg width='0' height='0'>
       <defs>
       <clipPath id="cp" clipPathUnits="objectBoundingBox">
@@ -49,20 +45,42 @@ class Login extends React.Component{
       </svg>
 
       <div className="login">
-      <Form size={'massive'} key="{'massive'}" onSubmit={this.handleSubmitForLogin}>
+      <Form
+        size={'massive'}
+        key="{'massive'}"
+        onSubmit={this.handleSubmitForLogin}
+      >
         <Form.Field>
           <label>Email</label>
           <div class="ui input focus">
-          <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.changeHandler}/>
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            value={this.state.email}
+            onChange={this.changeHandler}
+          />
           </div>
         </Form.Field>
         <Form.Field>
           <label>Password</label>
           <div class="ui input focus">
-          <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={this.state.password}
+            onChange={this.changeHandler}
+          />
           </div>
         </Form.Field>
-        <button  id="btn" className="ui teal basic button" type="submit">Log In</button>
+        <button
+          id="btn"
+          className="ui teal basic button"
+          type="submit"
+          >
+          Log In
+        </button>
       </Form>
       </div>
 
