@@ -57,9 +57,9 @@ class Login extends React.Component{
           </div>
         </Form.Field>
         <Form.Field>
-          <label>Last Name</label>
+          <label>Password</label>
           <div class="ui input focus">
-          <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
+          <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
           </div>
         </Form.Field>
         <button  id="btn" className="ui teal basic button" type="submit">Log In</button>
