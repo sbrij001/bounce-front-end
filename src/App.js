@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from "react-router-dom";
-
-
 //Components
 //need to have both the route and switch
 //Switch stops at the first match
@@ -26,7 +24,7 @@ import HomeContainer from './components/HomeContainer';
 import './App.css';
 // import {Gradient} from 'react-gradient';
 // import {gradients} from './components/gradient';
-import "/Users/shivanibrijmohan/Development/code/Mod5/bloc/bloc-front-end/src/style/sass/components/navigation.scss"
+import './style/sass/component/navigation.scss'
 
 // <Route exact path="/playlists/:name" render={()=> <PlaylistContainer/>} />
 class App extends Component {
