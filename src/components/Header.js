@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 //style
-import '../style/sass/components/main.scss';
 import '../style/sass/components/header.scss';
 
 const Header = props => {
