@@ -17,54 +17,57 @@ class WebPlayer extends React.Component{
   componentDidMount = () => {
     let token = localStorage.token
     //top playlist
-    Object.keys(this.props.user).length > 0
-    ? fetch("http://api.napster.com/v2.2/playlists/top?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5&limit=6")
+    // Object.keys(this.props.user).length > 0
+    // ?
+    fetch("http://api.napster.com/v2.2/playlists/top?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5&limit=6")
     .then(resp => resp.json())
     .then(topPlaylist => {
       this.setState({
         top: topPlaylist.playlists
       })
     })
-    : this.props.history.push("/login")
+    // : this.props.history.push("/login")
     // top albums
-    Object.keys(this.props.user).length > 0
-    ? fetch("http://api.napster.com/v2.2/playlists?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5&limit=-2")
+    // Object.keys(this.props.user).length > 0
+    // ?
+    fetch("http://api.napster.com/v2.2/playlists?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5&limit=-2")
     .then(resp => resp.json())
     .then(allPlaylists => {
       this.setState({
         allPlaylists: allPlaylists.playlists
       })
     })
-    : this.props.history.push("/login")
+    // : this.props.history.push("/login")
     //fetch to get user playlists
-    Object.keys(this.props.user).length > 0
-    ? fetch("http://localhost:3000/api/v1/user_playlists", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`
-      },
-    })
-    .then(resp => resp.json())
-    .then(favPlayist => {
-      this.setState({
-        favPlayistId: favPlayist
-      })
-      this.state.favPlayistId.forEach((playlistObj) => {
-        let playlistId = playlistObj.napster_playlist_id
-        fetch(`http://api.napster.com/v2.2/playlists/${playlistId}?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5`)
-        .then(resp => resp.json())
-        .then(playlistObj => {
-          this.setState({
-            userPlaylists: [playlistObj.playlists[0], ...this.state.userPlaylists]
-          })
-        })
-      })
-
-
-    })
-    : this.props.history.push("/login")
+    // Object.keys(this.props.user).length > 0
+    // ?
+    // fetch("http://localhost:3000/api/v1/user_playlists", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //     Authorization: `Bearer ${token}`
+    //   },
+    // })
+    // .then(resp => resp.json())
+    // .then(favPlayist => {
+    //   this.setState({
+    //     favPlayistId: favPlayist
+    //   })
+    //   this.state.favPlayistId.forEach((playlistObj) => {
+    //     let playlistId = playlistObj.napster_playlist_id
+    //     fetch(`http://api.napster.com/v2.2/playlists/${playlistId}?apikey=MTU1YjllNjUtOTIwNi00MGJlLWJlOWMtZGYxMjJhZDI0NTk5`)
+    //     .then(resp => resp.json())
+    //     .then(playlistObj => {
+    //       this.setState({
+    //         userPlaylists: [playlistObj.playlists[0], ...this.state.userPlaylists]
+    //       })
+    //     })
+    //   })
+    //
+    //
+    // })
+    // : this.props.history.push("/login")
   }
 
 

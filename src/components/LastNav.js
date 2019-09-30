@@ -14,17 +14,14 @@ class LastNav extends Component {
 
     return (
       <Menu inverted className="nav">
-        <Menu.Item as={Link} to="/webplayer" name='webplayer' active={activeItem === 'browse'} onClick={this.handleItemClick}>
+        <Menu.Item as={Link} to="/header" name='header' active={activeItem === 'browse'} onClick={this.handleItemClick}>
           Home
         </Menu.Item>
 
-        <Menu.Item as={Link} to="/playlists" name='Playlists' active={activeItem === 'submit'} onClick={this.handleItemClick}>
+        <Menu.Item as={Link} to="/WebPlayer" name='Playlists' active={activeItem === 'submit'} onClick={this.handleItemClick}>
           Playlists
         </Menu.Item>
 
-        <Menu.Item as={Link} to="/webplayerlist" name='streaming' active={activeItem === 'submit'} onClick={this.handleItemClick}>
-          Streaming
-        </Menu.Item>
 
         <Menu.Menu position='right'>
           <Menu.Item as={Link} to="/signup" name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>

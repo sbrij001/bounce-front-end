@@ -16,15 +16,16 @@ class SignUp extends React.Component{
   }
 
   handleSubmitForSignUp = (event) => {
-    // console.log("state", this.state)
     event.preventDefault();
-    this.props.handleSubmitForSignUp(this.state);
-    this.setState({
-      name: "",
-      email: "",
-      password: "",
-      birthday: ""
-    });
+    console.log("hit")
+    this.props.history.push("/WebPlayer")
+    // this.props.handleSubmitForSignUp(this.state);
+    // this.setState({
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    //   birthday: ""
+    // });
   };
 
   render(){
@@ -42,10 +43,10 @@ class SignUp extends React.Component{
       </defs>
       </svg>
 
-      <Form size={'huge'} key="{'huge'}" onSubmit={this.handleSubmitForLogin}>
+      <Form size={'huge'} key="{'huge'}" onSubmit={this.handleSubmitForSignUp}>
         <Form.Field>
           <label>Name</label>
-          <div class="ui input focus">
+          <div className="ui input focus">
           <input type="text" placeholder="Name" name="name" value={this.state.name} onChange={this.changeHandler}/>
           </div>
         </Form.Field>
@@ -60,7 +61,7 @@ class SignUp extends React.Component{
         <Form.Field>
         <label>Password</label>
         <div class="ui input focus">
-        <input type="text" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
+        <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler}/>
         </div>
         </Form.Field>
 

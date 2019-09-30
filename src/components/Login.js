@@ -24,11 +24,12 @@ class Login extends React.Component{
 
   handleSubmitForLogin = (event) => {
     event.preventDefault();
-    this.props.handleSubmitForLogin(this.state);
-    this.setState({
-      email: "",
-      password: ""
-    });
+    this.props.history.push("/header")
+    // this.props.handleSubmitForLogin(this.state);
+    // this.setState({
+    //   email: "",
+    //   password: ""
+    // });
   };
   render(){
     // console.log(this.props);

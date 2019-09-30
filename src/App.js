@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 //Components
 //need to have both the route and switch
 //Switch stops at the first match
@@ -77,7 +77,7 @@ class App extends Component {
     .then((userInfo) => {
       this.setState({ user: userInfo.user }, () => {
         localStorage.setItem("token", userInfo.jwt )
-        this.props.history.push("/playlists")
+        this.props.history.push("/webplayer")
       });
     });
   };
@@ -96,7 +96,7 @@ class App extends Component {
           // console.log(userInfo)
           localStorage.token = userInfo.jwt
           this.setState({ user: userInfo.user },
-          () => this.props.history.push("/header"));
+          () => this.props.history.push("/WebPlayer"));
       })
     }
 

@@ -33,7 +33,7 @@ class MapBox extends Component {
 
     return (
       <div>
-      <h1>SHITTTTTTTTT</h1>
+      <h1>Under Construction</h1>
       <Map
         {...mapProps}
         containerStyle={{
