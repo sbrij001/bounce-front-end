@@ -40,14 +40,15 @@ body {
 }
 
 h2 {
-  -webkit-text-stroke: 1px #9FD2D6;
-  color: white;
+  -webkit-text-stroke: 1px black;
+  color: black !important;
   text-shadow:
-      3px 3px 0 #600202,
-    -1px -1px 0 #600202,
-     1px -1px 0 #600202,
-     -1px 1px 0 #600202,
-      1px 1px 0 #600202;
+      3px 3px 0 #9FD2D6,
+    -1px -1px 0 white,
+     1px -1px 0 #9FD2D6,
+     -1px 1px 0 white,
+      1px 1px 0 #9FD2D6;
  font-family: 'Karla', sans-serif;
  letter-spacing: 0.5rem;
+ font-size: 2em;
 }
