@@ -69,13 +69,14 @@ class SongList extends React.Component{
     })
   }
 
+  //<Button inverted color='teal' id='addPlaylist' onClick={this.savePlaylist}>Add Playlist To Library</Button>
+
   render(){
     // debugger
     console.log("SongList props", this.props);
     return(
       <div>
       {this.renderTracks()}
-      <Button inverted color='teal' id='addPlaylist' onClick={this.savePlaylist}>Add Playlist To Library</Button>
       </div>
     )
   }
